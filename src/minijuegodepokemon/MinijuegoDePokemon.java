@@ -86,7 +86,8 @@ public class MinijuegoDePokemon {
         String tipoJugador = pokJugador.getTipo();
         String tipomaquina = pokJugador.getTipo();
         String nombrePokJugador = pokJugador.getNombre();
-
+        String nombrePokEnemigo = pokMaquina.getNombre();
+        
         //bucle que sigue hasta que un pokemon muera
         while (pokJugador.getVida() > 0 && pokMaquina.getVida() > 0) {
 
@@ -108,7 +109,7 @@ public class MinijuegoDePokemon {
                 // esta condicion hay 1 entre 5 que se ejecute
                 esquive = (int) Math.floor(Math.random() * 5);
                 if (esquive != 0) {
-                    pokMaquina.recibirDaño(pokJugador.atacar(tipoJugador, tipomaquina), nombrePokJugador);
+                    pokMaquina.recibirDaño(pokJugador.atacar(tipoJugador, tipomaquina), nombrePokEnemigo);
 
                 } else {
                     System.out.println("vaya " + pokMaquina.getNombre() + " esquivo tu ataque");
@@ -126,13 +127,17 @@ public class MinijuegoDePokemon {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            // inicia el turno de la maquina:
-            esquive = (int) Math.floor(Math.random() * 5);
-            if (esquive != 0) {
-                pokMaquina.recibirDaño(pokJugador.atacar(tipoJugador, tipomaquina), nombrePokJugador);
+            // inicia el turno de la maquina: (en funcion de un random realiza una accion aleatoria como usar una pocion)
+            esquive = (int) Math.floor(Math.random() * 7);
+            if (esquive != 2) {
+                pokJugador.recibirDaño(pokJugador.atacar(tipomaquina, tipoJugador ), nombrePokEnemigo);
+                
+            }
+            else if (esquive != 0) {
+                pokMaquina.usarPocion();
 
             } else {
-                System.out.println("vaya " + pokMaquina.getNombre() + " esquivo tu ataque");
+                System.out.println("vaya " + pokJugador.getNombre() + " enemigo esquivo el ataque enemigo");
             }
 
         }

@@ -122,14 +122,21 @@ public class Pokemon {
 
             default:
                 throw new AssertionError();
-        }   
+        }
     }
-    
+
     //esta funcion resta el daño del poquemon que recibe el ataque conbinada con la funcion atacar
-    public static void recibirDaño( int dano,  String atacanteNombre ){
-        System.out.println(atacanteNombre +" lanza su ataque a " + nombre);
-        System.out.println( nombre + " tiene " + vida);
-        vida = vida - dano;
+    public static void recibirDaño(int danno, String atacanteNombre) {
+        System.out.println(atacanteNombre + " lanza su ataque a " + nombre);
+        System.out.println(nombre + " tiene " + vida);
+        vida = vida - danno;
         System.out.print(" y se queda con " + vida);
     }
+
+    //cura a tu pokemon con una pocion 
+    public static void usarPocion() {
+        vida = vida + 20;
+        System.out.println(nombre + " se cura 20 ps con pocion");
+    }
+
 }
