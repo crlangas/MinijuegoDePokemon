@@ -6,9 +6,7 @@
 
 - **Lenguaje de programación**: Java
 - **Funcionalidades**:
-  - Captura y entrenamiento de Pokémon.
-  - Batallas contra otros entrenadores.
-  - Exploración de diferentes áreas en el mundo del juego.
+  - Batallas de pokemon vs pokemon con varios pokemon par elegir.
 
 ## Requisitos del sistema
 
