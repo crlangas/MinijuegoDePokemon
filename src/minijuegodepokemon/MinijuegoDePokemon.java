@@ -14,13 +14,13 @@ public class MinijuegoDePokemon {
     static Scanner reader = new Scanner(System.in);
     //creo las variables que van a tener los objetos de los pokemons contra los que jugara el jugador
     //las creo como static para usarlas en la funciones del codigo mas adelante.
-    static Pokemon pokJugador;
-    static Pokemon pokMaquina;
 
     public static void main(String[] args) {
         // Variables
         String pelear = "";
-
+        Pokemon pokJugador;
+        Pokemon pokMaquina;
+        
         try {
             //presentacion del juego
             System.out.println("| ----------------------------- |");
@@ -36,8 +36,10 @@ public class MinijuegoDePokemon {
                 System.out.println("Lucharas contra: " + pokMaquina.getNombre());
                 System.out.println(" Buena suerte :)");
 
+                System.out.println("" + pokJugador.getNombre());
+                System.out.println("eee" + pokMaquina.getNombre());
                 //comienza la pelea
-                combatir();
+                combatir(pokJugador, pokMaquina);
 
                 // te pregunta si quieres seguir jugado
                 System.out.println("Quieres jugar otra vez? y/n");
@@ -79,7 +81,7 @@ public class MinijuegoDePokemon {
 
     }
 
-    private static void combatir() {
+    private static void combatir(Pokemon pokJugador, Pokemon pokMaquina) {
         int pocionesUsadas = 0;
         String accionPlayer = "";
         int esquive = 0;
@@ -87,7 +89,7 @@ public class MinijuegoDePokemon {
         String tipomaquina = pokJugador.getTipo();
         String nombrePokJugador = pokJugador.getNombre();
         String nombrePokEnemigo = pokMaquina.getNombre();
-        
+
         //bucle que sigue hasta que un pokemon muera
         while (pokJugador.getVida() > 0 && pokMaquina.getVida() > 0) {
 
@@ -130,10 +132,9 @@ public class MinijuegoDePokemon {
             // inicia el turno de la maquina: (en funcion de un random realiza una accion aleatoria como usar una pocion)
             esquive = (int) Math.floor(Math.random() * 7);
             if (esquive != 2) {
-                pokJugador.recibirDaño(pokJugador.atacar(tipomaquina, tipoJugador ), nombrePokEnemigo);
-                
-            }
-            else if (esquive != 0) {
+                pokJugador.recibirDaño(pokJugador.atacar(tipomaquina, tipoJugador), nombrePokEnemigo);
+
+            } else if (esquive != 0) {
                 pokMaquina.usarPocion();
 
             } else {
