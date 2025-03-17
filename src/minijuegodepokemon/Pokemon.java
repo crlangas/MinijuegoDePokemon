@@ -6,9 +6,9 @@ package minijuegodepokemon;
  */
 public class Pokemon {
 
-    static private String nombre;
-    static private String tipo;
-    static private int vida;
+     private String nombre;
+     private String tipo;
+     private int vida;
     //static public int totalPociones = 3;
 
     public Pokemon(String nombre, String tipo, int vida, int ataque) {
@@ -126,7 +126,7 @@ public class Pokemon {
     }
 
     //esta funcion resta el daño del poquemon que recibe el ataque conbinada con la funcion atacar
-    public static void recibirDaño(int danno, String atacanteNombre) {
+    public void recibirDanno(int danno, String atacanteNombre) {
         System.out.println(atacanteNombre + " lanza su ataque a " + nombre);
         System.out.println(nombre + " tiene " + vida);
         vida = vida - danno;
@@ -134,7 +134,7 @@ public class Pokemon {
     }
 
     //cura a tu pokemon con una pocion 
-    public static void usarPocion() {
+    public void usarPocion() {
         vida = vida + 20;
         System.out.println(nombre + " se cura 20 ps con pocion");
     }

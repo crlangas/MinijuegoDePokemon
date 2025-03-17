@@ -86,7 +86,7 @@ public class MinijuegoDePokemon {
         String accionPlayer = "";
         int esquive = 0;
         String tipoJugador = pokJugador.getTipo();
-        String tipomaquina = pokJugador.getTipo();
+        String tipomaquina = pokMaquina.getTipo();
         String nombrePokJugador = pokJugador.getNombre();
         String nombrePokEnemigo = pokMaquina.getNombre();
 
@@ -111,7 +111,7 @@ public class MinijuegoDePokemon {
                 // esta condicion hay 1 entre 5 que se ejecute
                 esquive = (int) Math.floor(Math.random() * 5);
                 if (esquive != 0) {
-                    pokMaquina.recibirDaño(pokJugador.atacar(tipoJugador, tipomaquina), nombrePokEnemigo);
+                    pokMaquina.recibirDanno(pokJugador.atacar(tipoJugador, tipomaquina), nombrePokJugador);
 
                 } else {
                     System.out.println("vaya " + pokMaquina.getNombre() + " esquivo tu ataque");
@@ -122,7 +122,7 @@ public class MinijuegoDePokemon {
             }
 
             accionPlayer = "end of player play";
-
+            System.out.println("");
             System.out.println(pokMaquina.getNombre() + " se prepara para atacar...");
             try {
                 Thread.sleep(1000); // Pausa por 1 segundos
@@ -132,8 +132,8 @@ public class MinijuegoDePokemon {
             // inicia el turno de la maquina: (en funcion de un random realiza una accion aleatoria como usar una pocion)
             esquive = (int) Math.floor(Math.random() * 7);
             if (esquive != 2) {
-                pokJugador.recibirDaño(pokJugador.atacar(tipomaquina, tipoJugador), nombrePokEnemigo);
-
+                pokJugador.recibirDanno(pokJugador.atacar(tipomaquina, tipoJugador), nombrePokEnemigo);
+                
             } else if (esquive != 0) {
                 pokMaquina.usarPocion();
 
