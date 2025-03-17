@@ -36,8 +36,6 @@ public class MinijuegoDePokemon {
                 System.out.println("Lucharas contra: " + pokMaquina.getNombre());
                 System.out.println(" Buena suerte :)");
 
-                System.out.println("" + pokJugador.getNombre());
-                System.out.println("eee" + pokMaquina.getNombre());
                 //comienza la pelea
                 combatir(pokJugador, pokMaquina);
 
